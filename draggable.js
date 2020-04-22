@@ -1,6 +1,6 @@
 
 ;(function(root){
-if(!root.intaract)return console.log('need intaract')
+if(!root.interact)return console.log('need interact')
 ;
 function draggable(query){
 return interact(query)
