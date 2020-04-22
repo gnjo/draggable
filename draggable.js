@@ -19,5 +19,5 @@ return interact(query)
 })
 }
 ;
-root.draggalbe=draggable;
+root.draggable=draggable;
 })(this);
