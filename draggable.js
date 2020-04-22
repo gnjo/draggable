@@ -17,11 +17,12 @@ return interact(query)
 })
 .on('dragmove', function (event) {
  let el=event.target
- if(!el.dx) el.dx=el.dy=0
- let x=parseFloat(el.dx) + event.dx,y=parseFloat(el.dy) + event.dy
-  el.dx=ceil(x,32),el.dy=ceil(y,32)
+ if(!el.dataset.dx) el.dataset.dx=el.dataset.dy=0
+ let x=parseFloat(el.dataset.dx) + event.dx,y=parseFloat(el.dataset.dy) + event.dy
+  el.dataset.dx=ceil(x,32),el.dataset.dy=ceil(y,32)
   el.style.webkitTransform =el.style.transform =`translate(${x}px,${y}px)`
 })
+ 
 }
 ;
 root.draggable=draggable;
