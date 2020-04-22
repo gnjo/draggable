@@ -2,6 +2,11 @@
 ;(function(root){
 if(!root.interact)return console.log('need interact')
 ;
+function ceil(v,unit){
+ let a=v%unit,add=unit*parseInt(a/(unit/2))
+ return v-a+add
+}
+
 function draggable(query){
 return interact(query)
 .draggable({
@@ -14,7 +19,7 @@ return interact(query)
  let el=event.target
  if(!el.dx) el.dx=el.dy=0
  let x=parseFloat(el.dx) + event.dx,y=parseFloat(el.dy) + event.dy
-  el.dx=x,el.dy=y
+  el.dx=ceil(x,32),el.dy=ceil(y,32)
   el.style.webkitTransform =el.style.transform =`translate(${x}px,${y}px)`
 })
 }
