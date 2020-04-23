@@ -10,7 +10,7 @@ div.dragsymbol xyz
 ```
 ```
 //usage
-draggable('.dragsymbol')
+draggable('.dragsymbol',32) //32 is cellsize
 ```
 ```
 //ghost line
