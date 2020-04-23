@@ -7,19 +7,20 @@ function ceil(v,unit){
  return v-a+add
 }
 
-function draggable(query){
+function draggable(query,size){
+ size=size||32
 return interact(query)
 .draggable({
   modifiers: [
     interact.modifiers.snap({
-      targets: [interact.createSnapGrid({ x: 32, y: 32 })]
+      targets: [interact.createSnapGrid({ x: size, y: size })]
     })]    
 })
 .on('dragmove', function (event) {
  let el=event.target
  if(!el.dataset.dx) el.dataset.dx=el.dataset.dy=0
  let x=parseFloat(el.dataset.dx) + event.dx,y=parseFloat(el.dataset.dy) + event.dy
-  el.dataset.dx=ceil(x,32),el.dataset.dy=ceil(y,32)
+  el.dataset.dx=ceil(x,size),el.dataset.dy=ceil(y,size)
   el.style.webkitTransform =el.style.transform =`translate(${x}px,${y}px)`
 })
  
